@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <listener>
+    <listener-class>TikoPizza.WebContent.Init</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>home</servlet-name>
+    <servlet-class>TikoPizza.WebContent.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>pizzat</servlet-name>
+    <servlet-class>TikoPizza.WebContent.PizzaListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>pizzat</servlet-name>
+    <url-pattern>/pizzat</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>yhteystiedot</servlet-name>
+    <jsp-file>/WEB-INF/jsp/yhteystiedot.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>yhteystiedot</servlet-name>
+    <url-pattern>/yhteystiedot</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/error.jsp</location>
+  </error-page>
+</web-app>

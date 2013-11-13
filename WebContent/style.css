@@ -1,0 +1,386 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+@import url("cart.css");
+
+
+* {
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+body {
+	background-color: #E0E0E0;
+	padding: 0;
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+body a {
+	color: #ff0000;
+}
+
+#top {
+	position: relative;
+	height: 172px;
+	background: #FDFDFD;
+	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.50);
+}
+
+#top img {
+	padding: 16px;
+}
+
+#navbar img {
+	padding: 0px;
+}
+
+#navbar {
+	font-size: 24px;
+	position: absolute;
+	bottom: 0;
+	padding: 8px;
+}
+
+.navbar-item, .navbar-item-active {
+	display: block;
+	float: left;
+	padding: 4px;
+	margin-right: 8px;
+}
+#navbar .navbar-item-active {
+	color: white;
+	background-color: #ED0B0B;
+	box-shadow: inset 0px -2px 0px rgba(0,0,0,0.2);
+	vertical-align: middle;
+}
+
+.navbar-item a, .navbar-item-active a {
+	text-decoration: none;
+}
+
+.navbar-item a {
+	color:black;
+}
+.navbar-item a, .navbar-item-active a {
+	color:inherit;
+}
+
+
+
+#pitsulista {
+	width:100%;
+	float:left;
+	margin-right:-272px;
+}
+
+#pitsulistax {
+	margin-right: 280px;
+	padding: 16px;
+}
+
+
+.sort {
+    float:right;
+    text-align:center;
+    display:inline-block;
+    /*text-align:right;*/
+    padding-right:1em;
+    position: relative;
+    top:0;
+    margin-right: 6px;
+    background-color: white;
+    padding: 4px;
+    -moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.75);
+}
+.kategoria {
+	font-size: 36px;
+	padding-bottom: 8px;
+    clear:both;
+    margin-top:.3em;
+}
+
+.tuote {
+	cursor:pointer;
+	float: left;
+	display: inline-block;
+	min-height: 160px;
+	min-width: 160px;
+	position: relative;
+	margin:4px;
+    overflow: hidden;
+}
+
+.pitsuid {
+    bottom: 0px;
+    top: 130px;
+	display: block;
+	position: absolute;
+	width: 160px;
+	background: rgba(0,0,0,0.50);
+    -webkit-transition: all .25s ease-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+
+	
+}
+.tuote:hover .pitsuid{
+    top:65px;
+    background: rgba(0,0,0,0.80);
+}
+
+.pitsunimi {
+	padding: 8px;
+	color: white;
+	font-size: 16px;
+	float: left;
+	max-width: 160px;
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+    font-weight: bold;
+	
+}
+.pitsukuvaus {
+    clear:both;
+    padding: 8px;
+    color: white;
+    font-size: 14px;
+    max-width: 160px;
+    vertical-align: middle;
+    
+}
+
+.pitsuhintaboksi {
+	background-color: yellow;
+	display: block;
+	float: right;
+	height: 40px;
+	width: 60px;
+	padding: 0px;
+	margin: 12px;
+	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.75);
+}
+
+.pitsuhinta {
+	vertical-align:middle;
+	line-height: 40px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 21px;
+	
+}
+
+#yhteystiedot {
+	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.50);
+	margin: 8px;
+	padding: 8px;
+	background-color: white;	
+	height: 500px;
+	position: relative;
+}
+
+#yhteystiedot p {
+	float: left;
+	margin-right: 460px;
+}
+
+#kartta {
+	position: absolute;
+	top:0;
+	right: 0;
+	padding: 8px;
+}
+
+#karttatext {
+	clear: both;
+}
+
+p {
+	padding-top: 8px;
+	padding-bottom: 16px;	
+}
+
+h1 {
+	text-transform: uppercase;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 24px;
+}
+
+td {
+	padding: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CSS for shopping cart*/
+
+
+#ostoskori {
+	margin: 0px;
+	max-width: 272px;
+	/*max-height: 250px;*/
+	width: 272px;
+	min-height: 250px;
+	-display: block;
+	-float: right;
+	-width:200px;
+	float:left;
+	-background: #FDFDFD;
+	--moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
+	--webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	-box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.50);
+	padding: 0px;
+}
+
+#ostoskorix {
+	max-width: 272px;
+	/*max-height: 250px;*/
+	width: 272px;
+	min-height: 250px;
+	margin-left: -16px;
+	margin-top: 16px;
+	background: #FDFDFD;
+	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.50);
+
+    position:relative;
+    padding-bottom:6em;
+    font-size: .9em;
+}
+#ostoskori div.top {
+	padding:.3em;
+	font-size:18px;
+	font-weight:bold;
+    border:1px solid white;
+    /*background-color:#ff4;*/
+    /*background-color:#ffe;*/
+    text-transform: uppercase;
+    border-bottom:1px solid #eee;
+}
+
+#ostoskori div.tuotteet {
+    padding:.3em;
+}
+#ostoskori div.bottom {
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+
+    padding:.3em .6em;
+    /*padding-bottom: .6em;*/
+    text-align: right;
+}
+#ostoskori #cart-total-price {
+    font-weight:bold;
+}
+#ostoskori #cart-count {
+    display:inline-block;
+    float:left;
+}
+
+#ostoskori div.bottom div.info {
+    padding:.5em 0;
+    border-bottom: 1px solid #eee;
+}
+#ostoskori div.bottom div.controls {
+    text-align: center;
+    padding:.7em 0;
+}
+#ostoskori div.bottom div.controls a {
+    font-weight:bold;
+    color:white;
+    background-color:#666;
+    display:inline-block;
+    text-decoration: none;
+    padding:.4em .4em;
+    border-bottom:3px solid #444;
+    border-right:1px solid #444;
+    margin:0 .2em;
+    opacity: 0.9;
+}
+#ostoskori div.bottom div.controls a:hover {
+        opacity: 1;
+}
+#ostoskori div.bottom div.controls a.submit {
+    background-color:#392;
+    border-bottom:3px solid #171;
+    border-right:1px solid #171;
+}
+
+
+
+.cart-tuote {
+	padding:.3em;
+	border-bottom:1px solid #eee;
+	clear:both;
+    font-size:1.2em;
+}
+.cart-tuote * {
+	vertical-align:top;
+}
+.cart-tuote img {
+	width:32px;
+	height:auto;
+	border-bottom:1px solid #eee;
+	vertical-align: bottom;
+}
+.cart-tuote .nimi {
+	width:140px;
+	display:inline-block;
+}
+
+
+.cart-tuote:hover {
+    background-color: #eee
+}
+.cart-tuote a {
+	float:right;
+	color:black;
+	font-weight: bold;
+	font-size:10px;
+	text-decoration: none;
+	display:none;
+	padding:2px 5px;
+	border-radius:3px;
+    background-color: #ddd;
+    background-color: #ebb;
+
+    color:#700;
+    border:1px solid #d99;
+}
+.cart-tuote:hover a {
+	display:inline-block;
+}
+
+.cart-tuote a:hover {
+	color:white;
+	background-color: #666;
+
+    background-color: #700;
+
+    color:#ebb;
+}
