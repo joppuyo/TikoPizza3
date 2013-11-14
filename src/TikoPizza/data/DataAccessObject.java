@@ -29,7 +29,7 @@ public class DataAccessObject {
 			// return dataSource.getConnection();
 			String dbClassName = "com.mysql.jdbc.Driver";
 			String CONNECTION =
-			"jdbc:mysql://127.0.0.1:3333/projekti?autoReconnect=true&sessionVariables=storage_engine=InnoDB";
+			"jdbc:mysql://127.0.0.1:3306/projekti?autoReconnect=true&sessionVariables=storage_engine=InnoDB";
 			// private Connection yhteys;
 			// private Connection yhteys;
 			Class.forName(dbClassName);
