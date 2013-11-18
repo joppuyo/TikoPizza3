@@ -27,6 +27,14 @@
     <servlet-name>yhteystiedot</servlet-name>
     <url-pattern>/yhteystiedot</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>tilauslomake</servlet-name>
+    <jsp-file>/WEB-INF/jsp/tilauslomake.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tilauslomake</servlet-name>
+    <url-pattern>/tilauslomake</url-pattern>
+  </servlet-mapping>
   <error-page>
     <exception-type>java.lang.Exception</exception-type>
     <location>/error.jsp</location>
