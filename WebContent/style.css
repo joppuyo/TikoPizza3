@@ -237,6 +237,10 @@ body a {
 	
 }
 
+.hinta {
+	font-weight:bold;
+}
+
 #yhteystiedot {
 	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
@@ -419,6 +423,7 @@ left: 32px;
 	border-bottom:1px solid #eee;
 	clear:both;
     font-size:1.2em;
+    height:32px;
 }
 .cart-tuote * {
 	vertical-align:top;
@@ -430,7 +435,7 @@ left: 32px;
 	vertical-align: bottom;
 }
 .cart-tuote .nimi {
-	width:140px;
+	width:160px;
 	display:inline-block;
 }
 
@@ -439,29 +444,20 @@ left: 32px;
     background-color: #eee
 }
 .cart-tuote a {
+	width:24px;
+	height:24px;
 	float:right;
-	color:black;
-	font-weight: bold;
+	color:rgba(0, 0, 0, 0);
+	opacity:0.5;
 	font-size:10px;
 	text-decoration: none;
-	display:none;
-	padding:2px 5px;
-	border-radius:3px;
-    background-color: #ddd;
-    background-color: #ebb;
-
-    color:#700;
-    border:1px solid #d99;
+	background-image:url('images/delete.png');
 }
 .cart-tuote:hover a {
 	display:inline-block;
 }
 
 .cart-tuote a:hover {
-	color:white;
-	background-color: #666;
-
-    background-color: #700;
-
-    color:#ebb;
+	background-image:url('images/delete_hover.png');
+	opacity:1;
 }

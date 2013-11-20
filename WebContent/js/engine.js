@@ -10,7 +10,6 @@ TikoPizzan UI engine
 var cart = new Cart();
 var catalog = new Catalog();
 
-
 // onload-funktio (ajetaan kun koko sivu on täysin latautunut selaimeen)
 $(function () {
     uiLoad()
@@ -22,25 +21,6 @@ function uiLoad() {
     catalog.load()
     cart.load()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Tuotekatalogiobjekti
 function Catalog() {
@@ -106,22 +86,11 @@ function Catalog() {
         return product;
     }
 
-
-
 }
-
-
-
-
-
-
 
 /*
     OSTOSKORI
 */
-
-
-
 
 // Ostoskoriobjekti
 function Cart() {
@@ -186,8 +155,6 @@ function Cart() {
         }
     }
 
-
-
     // Päivitetään ostoskorinäkymä (sisältö & kokonaishinta)
     this.update = function(store) {
 
@@ -231,7 +198,6 @@ function Cart() {
 
             // Uuden tuotteen html
             var s = '<div class="cart-tuote" id="'+eid+'" title="'+desc+'">\
-                <img src="images/tuotteet/'+id+'.png" />\
                 <span class="nimi">'+name+'</span>\
                 <span class="hinta">'+price+' &euro;</span>\
                 <a title="Poista tuote" href="javascript:cart.itemRemove('+i+')">X</a>\
@@ -274,16 +240,6 @@ function Cart() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 // // Luetaan ostoskorin sisältö keksistä
 // function cartLoad() {
 //     value = $.cookie('cart_contents');
@@ -300,11 +256,3 @@ function Cart() {
 //     // tallennetaan tuotelista 365pv säilyvään keksiin
 //     $.cookie('cart_contents', value, { expires: 365 });
 // }
-
-
-
-
-
-
-
-

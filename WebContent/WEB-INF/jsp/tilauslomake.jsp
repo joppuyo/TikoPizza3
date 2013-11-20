@@ -30,6 +30,19 @@
 </tr>
 
 <tr>
+<td style="width:50%">
+<div class="validator" id="etunimi-validator" style="display:none">
+Tarkista etunimi
+</div>
+</td>
+<td style="width:50%">
+<div class="validator" id="sukunimi-validator" style="display:none">
+Tarkista sukunimi
+</div>
+</td>
+</tr>
+
+<tr>
 <td><p>Osoite</p></td>
 </tr>
 
@@ -50,7 +63,7 @@
 <tr>
 <td colspan="2">
 <div class="validator" id="osoite-validator" style="display:none">
-<p>Osoite ei toimitusalueella. Anna toinen osoite.</p>
+<p>[]Osoitevirhe]</p>
 </div>
 </td>
 </tr>
@@ -91,6 +104,6 @@ Tarkista sähköpostiosoite
 
 </div>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="validate.js"></script>
+<script type="text/javascript" src="js/validate.js"></script>
 </body>
 <%@ include file="page_end.inc" %>
