@@ -3,7 +3,6 @@
 <%@ page import="java.util.Iterator" %>
 <%@ page import="TikoPizza.data.Tuote" %>
 <%@ page import="java.util.*" %>
-<jsp:useBean id="tuotteet" scope="request" type="java.util.List" />
 <%@ include file="global.inc" %>
 <%@ include file="page_start.inc" %>
 <%@ include file="page_head.inc" %>
@@ -53,25 +52,9 @@ String PrintTuote(Tuote tuote) {
 
         <%@ include file="page_cart.inc" %>
     </div>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <%@ include file="cart_deps.inc"%>
     
     <script type="text/javascript">
-      var product_catalog = [
-      <%
-      Iterator tuote_it = tuotteet.iterator();
-      while (tuote_it.hasNext())
-      {
-         Tuote tuote = (Tuote) tuote_it.next();
-         String tyyppi = tuote.getTyyppi().toLowerCase();
-         int id = tuote.getTuoteID();
-         String nimi = tuote.getNimi();
-         String kuvaus = tuote.getKuvaus();
-         double hinta = tuote.getHinta();
-      %>{id:<%=id%>,type:"<%=tyyppi%>",name:"<%=nimi%>",desc:"<%=kuvaus%>",price:<%=hinta%>},
-      <%
-      }
-      %>];
     </script>
     <script type="text/javascript" src="js/engine.js"></script>
 

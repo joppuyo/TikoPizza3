@@ -103,7 +103,9 @@ Tarkista sähköpostiosoite
 <%@ include file="page_cart.inc" %>
 
 </div>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<%@ include file="cart_deps.inc" %>
+
 <script type="text/javascript" src="js/validate.js"></script>
+
 </body>
 <%@ include file="page_end.inc" %>

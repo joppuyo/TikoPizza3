@@ -15,9 +15,8 @@
                         <span id="cart-count"></span>
                         yht. <span id="cart-total-price">0 &euro;</span>
                     </div>
-                    <div class="controls">
-                        <a href="#" class="submit">Siirry tilaamaan</a>
-                        <a href="javascript:cart.empty();">Tyhjennä</a>
+                    <div class="controls" id="cart-buttons">
+
                     </div>
                 </div>
 
