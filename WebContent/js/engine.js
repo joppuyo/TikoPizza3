@@ -1,14 +1,10 @@
 /*
 
-TikoPizzan UI engine
+TikoPizzan tuotelistan ja ostoskorin UI  engine
 
 */
 
-// var catalog;
-// var cart;
 
-var cart = new Cart();
-var catalog = new Catalog();
 
 // onload-funktio (ajetaan kun koko sivu on täysin latautunut selaimeen)
 $(function () {
@@ -16,10 +12,23 @@ $(function () {
 });
 
 
+
 function uiLoad() {
 
     catalog.load()
     cart.load()
+}
+
+
+// Lisätään nollia hintoihin tarpeen mukaan (6.5 -> 6.50)
+function price_str(price) {
+    price = String(price)
+    if(price.indexOf(".") != -1) {
+        if(price.split(".")[1].length == 1) {
+            price = price+"0"
+        }
+    }
+    return price
 }
 
 // Tuotekatalogiobjekti
@@ -48,7 +57,7 @@ function Catalog() {
             product = prod_list[i]
             s="<div onclick=\"cart.itemAdd("+product["id"]+")\" id=\"tuote-item-"+product["id"]+"\" class=\"tuote "+product["type"]+"\" style=\"background-image: url('images/tuotteet/"+product["id"]+".png')\"> \
              <div class=\"pitsuhintaboksi\">\
-                 <div class=\"pitsuhinta\">"+product["price"]+" &euro;</div>\
+                 <div class=\"pitsuhinta\">"+price_str(product["price"])+" &euro;</div>\
              </div>\
              <div class=\"pitsuid\">\
                <div class=\"pitsunimi\">"+product["name"]+"</div>\
@@ -157,18 +166,11 @@ function Cart() {
 
     // Päivitetään ostoskorinäkymä (sisältö & kokonaishinta)
     this.update = function(store) {
-
-        // if(store==undefined && store) {
-
-
-        // Jos store on määritetty ja == true
-        // tallennetaan ostoskorin sisältö
-        if(store) {
-            this.store()
-        }
         this.updateContents()
         this.updatePrice()
         this.updateCount()
+
+        this.store()
     }
 
 
@@ -191,7 +193,7 @@ function Cart() {
 
             name = product["name"];
             desc = product["desc"];
-            price = product["price"];
+            price = price_str(product["price"]);
 
             // elementin id
             eid = "cart-item-"+i+"-"+id;
@@ -219,7 +221,7 @@ function Cart() {
         
         // Pyöristetään kokonaishinta sentin tarkkuudella
         total = Math.round(total* 100) / 100
-         
+        total = price_str(total);
         // Asetetaan elementin sisältöön kokonaishinta
         $("#cart-total-price").html(total+" &euro;")
     }
@@ -240,19 +242,5 @@ function Cart() {
 }
 
 
-// // Luetaan ostoskorin sisältö keksistä
-// function cartLoad() {
-//     value = $.cookie('cart_contents');
-//     if(value) {
-//         cart_contents = value.split(",")
-//     }
-//     cartUpdate(false)
-// }
-
-// // Tallennetaan ostoskorin sisältö keksiin
-// function cartStore() {
-//     // muutetaan tuotelista pilkulla erotetuksi merkkijonoksi
-//     value = cart_contents.join(",")
-//     // tallennetaan tuotelista 365pv säilyvään keksiin
-//     $.cookie('cart_contents', value, { expires: 365 });
-// }
+var cart = new Cart();
+var catalog = new Catalog();
