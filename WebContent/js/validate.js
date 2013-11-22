@@ -1,4 +1,4 @@
-//kun käyttäjä yrittää lähettää lomakkeen
+//kun k√§ytt√§j√§ yritt√§√§ l√§hett√§√§ lomakkeen
 
 $( "form" ).submit(function( event ) {
 	
@@ -57,7 +57,11 @@ $( "form" ).submit(function( event ) {
 				var latitude = jsonobj.results[0].geometry.location.lat;
 				var longitude = jsonobj.results[0].geometry.location.lng;
 				matka = LaskePituus(pitseria_latitude, pitseria_longitude, latitude, longitude);
-				if (matka < 3 && katu.length > 0 && postinro.length > 0 && postitmi.length > 0) {
+				if (katu.length == 0 || postinro.length == 0 || postitmi.length == 0) {
+					$("#osoite-validator").html("T√§yt√§ kaikki kent√§t.");
+					$("#osoite-validator").show("slow");
+					event.preventDefault();
+				} else if (matka < 3) {
 					$("#osoite-validator").hide("slow");
 				} else {
 					$("#osoite-validator").html("Osoite ei toimitusalueella. Anna toinen osoite.");
