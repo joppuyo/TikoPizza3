@@ -63,7 +63,7 @@ Tarkista sukunimi
 <tr>
 <td colspan="2">
 <div class="validator" id="osoite-validator" style="display:none">
-<p>[]Osoitevirhe]</p>
+<p>Osoitevirhe</p>
 </div>
 </td>
 </tr>

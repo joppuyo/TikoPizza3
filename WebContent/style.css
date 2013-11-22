@@ -239,6 +239,8 @@ body a {
 
 .hinta {
 	font-weight:bold;
+	height: 24px;
+	line-height: 24px;
 }
 
 #yhteystiedot {
@@ -423,7 +425,6 @@ left: 32px;
 	border-bottom:1px solid #eee;
 	clear:both;
     font-size:1.2em;
-    height:32px;
 }
 .cart-tuote * {
 	vertical-align:top;
@@ -435,6 +436,8 @@ left: 32px;
 	vertical-align: bottom;
 }
 .cart-tuote .nimi {
+	height: 24px;
+	line-height: 24px;
 	width:160px;
 	display:inline-block;
 }
