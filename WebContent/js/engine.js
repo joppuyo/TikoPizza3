@@ -1,23 +1,10 @@
 /*
 
-TikoPizzan tuotelistan ja ostoskorin UI  engine
+TikoPizzan tuotelistan ja ostoskorin client side engine
 
 */
 
 
-
-// onload-funktio (ajetaan kun koko sivu on täysin latautunut selaimeen)
-$(function () {
-    uiLoad()
-});
-
-
-
-function uiLoad() {
-
-    catalog.load()
-    cart.load()
-}
 
 
 // Lisätään nollia hintoihin tarpeen mukaan (6.5 -> 6.50)
@@ -34,12 +21,9 @@ function price_str(price) {
 // Tuotekatalogiobjekti
 function Catalog() {
     // lista ostoskorin sisällöstä (tuote id:t)
-    this.products = product_catalog;
-
+    this.products = [];
     // minkä mukaan tuotteet järjestetään
     this.sort_key="name";
-
-
 
     this.load = function() {
         // var product_catalog;
@@ -49,6 +33,12 @@ function Catalog() {
 
     // Päivitetään tuotelistaus tuote
     this.update = function() {
+        
+        // Tarkistetaan ollaanko tuotelistauksessa
+        if( $('#tuotteet-pizza').length == 0) {
+            return false
+        }
+
         prod_list = this.sortByKey(this.products, this.sort_key);
         $("#tuotteet-pizza").html('<div class="kategoria">PIZZAT</div>')
         $("#tuotteet-juoma").html('<div class="kategoria">JUOMAT</div>')
@@ -111,6 +101,10 @@ function Cart() {
     this.size_min = 1;
     this.size_max = 15;
 
+    this.freeze_cart = false
+    if( $('#tuotteet-pizza').length == 0) {
+        this.freeze_cart = true
+        }
 
     // Luetaan ostoskorin sisältö keksistä
     this.load = function() {
@@ -169,7 +163,7 @@ function Cart() {
         this.updateContents()
         this.updatePrice()
         this.updateCount()
-
+        this.updateUI()
         this.store()
     }
 
@@ -201,9 +195,13 @@ function Cart() {
             // Uuden tuotteen html
             var s = '<div class="cart-tuote" id="'+eid+'" title="'+desc+'">\
                 <span class="nimi">'+name+'</span>\
-                <span class="hinta">'+price+' &euro;</span>\
-                <a title="Poista tuote" href="javascript:cart.itemRemove('+i+')">X</a>\
-                </div>';
+                <span class="hinta">'+price+' &euro;</span>'
+
+            // Ei näytetä tuotteen poistamispainiketta, jos ollaan tilauslomakkeessa
+            if(!this.freeze_cart) {
+                s=s+'<a title="Poista tuote" href="javascript:cart.itemRemove('+i+')">X</a>'
+            }
+            s=s+'</div>';
 
             // Lisätään tuoptelistaan uusi tuote
             $("#cart-tuote-list").append(s);
@@ -239,8 +237,31 @@ function Cart() {
         $("#cart-count").html(count+s)
     }
 
+    this.updateUI = function() {
+        if (this.freeze_cart) {
+            $("#cart-buttons").html('\
+                <a href="pizzat" class="">Takaisin</a>\
+                ')
+        }
+        else {
+            $("#cart-buttons").html('\
+                <a href="tilauslomake" class="submit">Siirry tilaamaan</a>\
+                <a href="javascript:cart.empty();">Tyhjennä</a>\
+                ')
+        }
+    }
+
 }
 
-
-var cart = new Cart();
 var catalog = new Catalog();
+var cart = new Cart();
+
+// onload-funktio (ajetaan kun koko sivu on täysin latautunut selaimeen)
+$(function () {
+    uiLoad()
+});
+
+function uiLoad() {
+    catalog.load()
+    cart.load()
+}
