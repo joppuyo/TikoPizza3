@@ -52,11 +52,9 @@ String PrintTuote(Tuote tuote) {
 
         <%@ include file="page_cart.inc" %>
     </div>
+
     <%@ include file="cart_deps.inc"%>
-    
-    <script type="text/javascript">
-    </script>
-    <script type="text/javascript" src="js/engine.js"></script>
+    <!--<script type="text/javascript" src="js/engine.js"></script>-->
 
 </body>
 
