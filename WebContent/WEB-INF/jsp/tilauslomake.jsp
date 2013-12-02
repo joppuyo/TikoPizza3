@@ -15,7 +15,7 @@
         <div id="tilauslomake">
             <div id="tilauslomakex">
 
-<form>
+<form action="tilausvarmistus" method="POST">
 <p>Tilauslomake</p>
 
 

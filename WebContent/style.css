@@ -464,3 +464,8 @@ left: 32px;
 	background-image:url('images/delete_hover.png');
 	opacity:1;
 }
+
+h3 {
+	font-weight: bold;
+	margin-top: 8px;
+}

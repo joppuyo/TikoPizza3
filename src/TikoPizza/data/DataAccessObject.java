@@ -20,30 +20,29 @@ public class DataAccessObject {
 		DataAccessObject.dataSource = dataSource;
 	}
 	
-	protected static Connection getConnection() throws
-                             ClassNotFoundException,SQLException
-	{
-		try
-		{
-			return dataSource.getConnection();
-			String dbClassName = "com.mysql.jdbc.Driver";
-			String CONNECTION =
-			"jdbc:mysql://127.0.0.1:3333/projekti?autoReconnect=true&sessionVariables=storage_engine=InnoDB";
-			// private Connection yhteys;
-			// private Connection yhteys;
-			Class.forName(dbClassName);
-			// Properties for user and password.
-			Properties p = new Properties();
-			p.put("user","projekti");
-			p.put("password","zuHAKI43m");
-			return DriverManager.getConnection(CONNECTION,p);
-			// yhteys = DriverManager.getConnection(CONNECTION,p);
-		}
-		catch (SQLException e)
-		{
-			throw new RuntimeException(e);
-		}
-	}
+	protected static Connection getConnection() throws ClassNotFoundException,SQLException
+    {
+         try
+         {
+                 // return dataSource.getConnection();
+                 String dbClassName = "com.mysql.jdbc.Driver";
+                 String CONNECTION =
+                 "jdbc:mysql://127.0.0.1:3306/projekti?autoReconnect=true&sessionVariables=storage_engine=InnoDB";
+                 // private Connection yhteys;
+                 // private Connection yhteys;
+                 Class.forName(dbClassName);
+                 // Properties for user and password.
+                 Properties p = new Properties();
+                 p.put("user","projekti");
+                 p.put("password","zuHAKI43m");
+                 return DriverManager.getConnection(CONNECTION,p);
+                 // yhteys = DriverManager.getConnection(CONNECTION,p);
+         }
+         catch (SQLException e)
+         {
+                 throw new RuntimeException(e);
+         }
+     }
 	
 	protected static void close(Statement statement, Connection connection)
 	{
