@@ -54,6 +54,7 @@ body a {
 	float: left;
 	padding: 4px;
 	margin-right: 8px;
+	border-radius:2px;
 }
 #navbar .navbar-item-active {
 	color: white;
@@ -138,7 +139,7 @@ body a {
 	background-color: #392;
 	color:white;
 	border-radius: 2px;
-	border: 0px solid black;
+	border: 0px;
 	border-bottom: 2px solid #171;
 }
 
