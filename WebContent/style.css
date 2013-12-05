@@ -164,7 +164,7 @@ body a {
     margin-top:.3em;
 }
 
-.tuote {
+#pitsulista .tuote {
 	cursor:pointer;
 	float: left;
 	display: inline-block;
@@ -188,7 +188,7 @@ body a {
 
 	
 }
-.tuote:hover .pitsuid{
+#pitsulista .tuote:hover .pitsuid{
     top:65px;
     background: rgba(0,0,0,0.80);
 }
@@ -220,7 +220,7 @@ body a {
 	display: block;
 	float: right;
 	height: 40px;
-	width: 76px;
+	width: 60px;
 	padding: 0px;
 	margin: 12px;
 	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.75);
@@ -239,8 +239,6 @@ body a {
 
 .hinta {
 	font-weight:bold;
-	height: 24px;
-	line-height: 24px;
 }
 
 #yhteystiedot {
@@ -425,6 +423,7 @@ left: 32px;
 	border-bottom:1px solid #eee;
 	clear:both;
     font-size:1.2em;
+    height:32px;
 }
 .cart-tuote * {
 	vertical-align:top;
@@ -436,8 +435,6 @@ left: 32px;
 	vertical-align: bottom;
 }
 .cart-tuote .nimi {
-	height: 24px;
-	line-height: 24px;
 	width:160px;
 	display:inline-block;
 }
@@ -465,7 +462,70 @@ left: 32px;
 	opacity:1;
 }
 
-h3 {
+
+
+
+#tilaukset div.tilaus {
+	background: #FDFDFD;
+	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+	padding:.9em;
+	margin-bottom:1em;
+}
+
+#tilaukset div.tilaus h1 {
+	color:white;
+	padding:.2em .3em;
+	margin-bottom:.2em;
+	border-radius: 2px
+
+}
+#tilaukset div.tilattu h1 {
+	background:#ed0b0b;
+}
+#tilaukset div.kasittelyssa h1 {
+	background:#fae20a;
+}
+#tilaukset div.toimitettu h1 {
+	background:#8bbc21;
+}
+
+#tilaukset div.tilaus table {
+	width:100%;
+	font-size:.9em;
+	text-align:center;
+}
+#tilaukset div.tilaus table th {
 	font-weight: bold;
-	margin-top: 8px;
+	padding:.6em;
+}
+#tilaukset div.tilaus table td {
+	background-color: #eee;
+	padding:.5em;
+	border:1px solid white;
+}
+
+
+#tilaukset div.tilaus div {
+	margin-top:.5em;
+}
+
+#tilaukset div.tilaus div h2 {
+	margin-top:.5em;
+}
+#tilaukset div.tilaus div h2 {
+	font-weight: bold;
+	display:inline-block;
+}
+#tilaukset div.tilaus span.tuote {
+	display:inline-block;
+	font-size:.9em;
+	padding:.5em;
+	margin:0 .3em;
+	background-color: #ddd;
+	border-radius: 2px;
+}
+#tilaukset div.tilaus span.tuote strong {
+	color:#000;
 }
