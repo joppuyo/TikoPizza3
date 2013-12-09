@@ -7,6 +7,16 @@ TikoPizzan tuotelistan ja ostoskorin client side engine
 
 
 
+// Yleinen notifikaatiofunktio
+function notifyMsg(msg) {
+    $("#notif-msg").text(msg)
+    $("#notif-msg").fadeIn()
+    setTimeout(function () {$("#notif-msg").fadeOut();},1500)
+}
+
+
+
+
 // Lisätään nollia hintoihin tarpeen mukaan (6.5 -> 6.50)
 function price_str(price) {
     price = String(price)
@@ -14,6 +24,7 @@ function price_str(price) {
         if(price.split(".")[1].length == 1) {
             price = price+"0"
         }
+        price=price.replace(".",",")
     }
     return price
 }
@@ -26,7 +37,6 @@ function Catalog() {
     this.sort_key="name";
 
     this.load = function() {
-        // var product_catalog;
         this.products = product_catalog;       
         this.update();
     }
@@ -47,7 +57,7 @@ function Catalog() {
             product = prod_list[i]
             s="<div onclick=\"cart.itemAdd("+product["id"]+")\" id=\"tuote-item-"+product["id"]+"\" class=\"tuote "+product["type"]+"\" style=\"background-image: url('images/tuotteet/"+product["id"]+".png')\"> \
              <div class=\"pitsuhintaboksi\">\
-                 <div class=\"pitsuhinta\">"+price_str(product["price"])+" &euro;</div>\
+                 <div class=\"pitsuhinta\">"+price_str(product["price"])+"&nbsp;&euro;</div>\
              </div>\
              <div class=\"pitsuid\">\
                <div class=\"pitsunimi\">"+product["name"]+"</div>\
@@ -132,6 +142,7 @@ function Cart() {
 
             // Päivitetään ostoskorinäkymä (ja tallennetaan muutokset)
             this.update()
+            notifyMsg("Tuote lisätty ostoskoriin.")
         }
         else {
             // Ostoskori on täynnä, ei lisätä tuotetta
@@ -172,7 +183,7 @@ function Cart() {
     this.updateContents = function() {
         // Tyhjennetään ostoskorielementin sisältö
         if(this.contents.length==0) {
-            $("#cart-tuote-list").html("<span>Lisää tuotteet vasemmalta.</span>");
+            $("#cart-tuote-list").html("<span>Lisää haluamasi tuotteet napsauttamalla niitä.</span>");
             return false;
         }
         $("#cart-tuote-list").html("");

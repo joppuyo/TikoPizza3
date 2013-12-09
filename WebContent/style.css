@@ -25,36 +25,62 @@ body a {
 	color: #ff0000;
 }
 
+html, body {
+    height: 100%;
+    min-height: 100%;
+    max-height:100%;
+}
+#holder {
+    min-height: 100%;
+    max-height:100%;
+    height: 100%;
+}
+
+
 #top {
 	position: relative;
-	height: 172px;
+	/*height: 172px;*/
 	background: #FDFDFD;
 	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.50);
 }
 
+#top div.images {
+	clear:both;
+	padding:1em 1em 0 1em;
+}
 #top img {
-	padding: 16px;
+	/*margin: 16px;*/
+}
+#top img.offer {
+	float:right;
+	height:90px;
 }
 
+
+#top div.images:after {
+	content:"";
+	display: block;
+	clear:both;
+}
 #navbar img {
 	padding: 0px;
 }
-
 #navbar {
+	background: #FDFDFD;
 	font-size: 24px;
-	position: absolute;
-	bottom: 0;
+	/*position: absolute;*/
+	/*bottom: 0;*/
 	padding: 8px;
+	clear:both;
 }
 
 .navbar-item, .navbar-item-active {
-	display: block;
-	float: left;
+	display: inline-block;
+	/*float: left;*/
 	padding: 4px;
 	margin-right: 8px;
-	border-radius:2px;
 }
 #navbar .navbar-item-active {
 	color: white;
@@ -131,7 +157,8 @@ body a {
 	border: 1px solid green;
 }
 
-#tilauslomake input[type="submit"]{
+#tilauslomake input[type="submit"],
+#tilauslomake a.submit{
 	font-weight: bold;
 	font-size: 13px;
 	padding:8px;
@@ -139,8 +166,9 @@ body a {
 	background-color: #392;
 	color:white;
 	border-radius: 2px;
-	border: 0px;
+	border: 0px solid black;
 	border-bottom: 2px solid #171;
+	text-decoration: none;
 }
 
 .sort {
@@ -165,7 +193,7 @@ body a {
     margin-top:.3em;
 }
 
-#pitsulista .tuote {
+ .tuote {
 	cursor:pointer;
 	float: left;
 	display: inline-block;
@@ -189,7 +217,7 @@ body a {
 
 	
 }
-#pitsulista .tuote:hover .pitsuid{
+ .tuote:hover .pitsuid{
     top:65px;
     background: rgba(0,0,0,0.80);
 }
@@ -198,8 +226,8 @@ body a {
 	padding: 8px;
 	color: white;
 	font-size: 16px;
-	float: left;
-	max-width: 160px;
+	/*float: left;*/
+	/*max-width: 160px;*/
 	display: block;
 	text-align: center;
 	vertical-align: middle;
@@ -211,7 +239,7 @@ body a {
     padding: 8px;
     color: white;
     font-size: 14px;
-    max-width: 160px;
+    /*max-width: 160px;*/
     vertical-align: middle;
     
 }
@@ -221,7 +249,7 @@ body a {
 	display: block;
 	float: right;
 	height: 40px;
-	width: 60px;
+	width: 75px;
 	padding: 0px;
 	margin: 12px;
 	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.75);
@@ -248,21 +276,29 @@ body a {
 	box-shadow:         0px 1px 2px 0px rgba(0,0,0,0.50);
 	margin: 8px;
 	padding: 8px;
-	background-color: white;	
-	height: 500px;
-	position: relative;
+	background-color: white;
+	/*position: relative;*/
 }
 
-#yhteystiedot p {
-	float: left;
-	margin-right: 460px;
+#yhteystiedot .info {
+	/*float: left;*/
+	/*display: inline-block;*/
+	/*margin-right: 500px;*/
+	width: auto;
+	/*border: 1px solid red;*/
+	vertical-align: top;
 }
 
 #kartta {
-	position: absolute;
-	top:0;
-	right: 0;
+	/*position: absolute;*/
+	/*top:0;*/
+	/*right: 0;*/
+	display: inline-block;
+	z-index: 500;
 	padding: 8px;
+	float:right;
+	vertical-align: top;
+	width: 450px;
 }
 
 #karttatext {
@@ -280,12 +316,24 @@ h1 {
 	padding-bottom: 8px;
 	font-size: 24px;
 }
+h2 {
+	text-transform: uppercase;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 18px;
+}
+h3 {
+	/*text-transform: uppercase;*/
+	padding-top: 8px;
+	padding-bottom: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	color:#444;
+}
 
 td {
 	padding: 4px;
 }
-
-
 
 
 
@@ -465,30 +513,50 @@ left: 32px;
 
 
 
-
+#order-stats-bar {
+	display:block;
+	width:100%;
+	padding:0;
+	margin: 0;
+	margin-bottom: .4em;
+}
+#order-stats-bar div.status-0 {
+	background:#ed0b0b;
+}
+#order-stats-bar div.status-1 {
+	background:#fae20a;
+}
+#order-stats-bar div.status-2 {
+	background:#8bbc21;
+}
+#tilaukset {
+	padding:.75em;
+	vertical-align: top;
+}
 #tilaukset div.tilaus {
 	background: #FDFDFD;
-	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+/*	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
-	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
-	padding:.9em;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);*/
+	padding:.5em;
 	margin-bottom:1em;
 }
 
 #tilaukset div.tilaus h1 {
 	color:white;
-	padding:.2em .3em;
-	margin-bottom:.2em;
-	border-radius: 2px
+	padding:.20em .25em;
+	margin-bottom:.1em;
+	border-radius: 2px;
+	font-size:1.21em;
 
 }
-#tilaukset div.tilattu h1 {
+#tilaukset div.status-0 h1 {
 	background:#ed0b0b;
 }
-#tilaukset div.kasittelyssa h1 {
+#tilaukset div.status-1 h1 {
 	background:#fae20a;
 }
-#tilaukset div.toimitettu h1 {
+#tilaukset div.status-2 h1 {
 	background:#8bbc21;
 }
 
@@ -498,22 +566,57 @@ left: 32px;
 	text-align:center;
 }
 #tilaukset div.tilaus table th {
-	font-weight: bold;
-	padding:.6em;
+	/*font-weight: bold;*/
+	padding:.2em;
+	font-size:.8em;
 }
 #tilaukset div.tilaus table td {
 	background-color: #eee;
 	padding:.5em;
 	border:1px solid white;
+	font-weight: ;
 }
 
 
 #tilaukset div.tilaus div {
 	margin-top:.5em;
 }
-
+#tilaukset div.tilaus div.products {
+	width:49%;
+	display: inline-block;
+}
+#tilaukset div.tilaus div.buttons {
+	width:49%;
+	display: inline-block;
+	text-align: right;
+}
+#tilaukset div.tilaus div.buttons a {
+	font-size:.8em;
+    font-weight:bold;
+    color:white;
+    background-color:#777;
+    display:inline-block;
+    text-decoration: none;
+    padding:.4em .4em;
+    border-radius: 2px;
+    border-bottom:2px solid #555;
+    border-right:1px solid #555;
+    margin:0 .2em;
+    opacity: 0.9;
+}
+#tilaukset div.tilaus div.buttons a.poista {
+	background-color: red;
+	border-color: #a00;
+}
+#tilaukset div.tilaus div.buttons a.sta1 {
+	background:#fae20a;
+}
+#tilaukset div.tilaus div.buttons a.sta2 {
+	background:#8bbc21;
+}
 #tilaukset div.tilaus div h2 {
-	margin-top:.5em;
+	/*margin-top:.5em;*/
+	font-size:.9em;
 }
 #tilaukset div.tilaus div h2 {
 	font-weight: bold;
@@ -529,4 +632,336 @@ left: 32px;
 }
 #tilaukset div.tilaus span.tuote strong {
 	color:#000;
+}
+
+
+#tilauslista {
+	width:400px;
+	padding:0;
+	margin:0;
+	display: inline-block;
+	vertical-align: top;
+	float:left;
+	position: fixed;
+	background-color: white;
+
+}
+#orderstats text[text-anchor="end"] {
+	display: none;
+}
+
+#orderlist {
+	padding:0;
+	margin:0;
+	vertical-align: top;
+}
+#orderlist div {
+	vertical-align: top;
+	width:32%;
+	display: inline-block;
+	margin:0;
+	padding:.1em;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+#orderlist div {
+	text-align: center;
+}
+#orderlist .orders {
+	/*display: inline-block;*/
+	margin:0;
+	padding:0;
+	min-height: 200px;
+}
+#orderlist .orders a {
+	color: white;
+	display: inline-block;
+	background-color: black;
+	border-radius: 3px;
+	text-decoration: none;
+	margin: .2em;
+	padding:.3em .4em;
+	width:100%;
+	font-size:.95em;
+	opacity: .9;
+	font-weight: bold;
+	text-shadow: 0 0 2px #111;
+	box-shadow: inset 0 0 5px #777;
+}
+#orderlist .order-placeholder {
+	border:1px solid #aaa;
+	background-color: #ccc;
+	opacity: .5;
+	height:28px;
+	width:100%;
+	border-radius: 3px;
+	display: inline-block;
+	margin:.2em;
+
+}
+
+#orderlist .orders a:hover {
+	opacity: 1;
+}
+
+#orderlist .orders a.status-0 {
+	background:#ed0b0b;
+}
+#orderlist .orders a.status-1 {
+	background:#e8d400;
+}
+#orderlist .orders a.status-2 {
+	background:#8bbc21;
+}
+
+
+#order-info {
+	margin-left:410px;
+	vertical-align: top;
+	position: relative;
+	padding-bottom:30em;
+
+}
+#order-info div {
+	/*display: inline-block;*/
+	font-weight: bold;
+	font-size:.95em;
+}
+#order-info div a {
+	text-decoration: none;
+	color: inherit;
+}
+#order-info h1 a {
+	color:white;
+}
+#order-info div span {
+	width:160px;
+	display: inline-block;
+	font-weight: normal;
+	font-size:.9em;
+	text-align: right;
+	padding-right: 1em;
+}
+
+
+@media (max-width: 801px) {
+    #top img.offer {
+    	display:none;
+    }
+
+	#kartta {
+		position: static !important;
+		padding: 8px;
+		display: block !important;
+		width:100%2 !important;
+	}
+	#kartta iframe {
+		display: block;
+		width: 100%;
+	}
+	#karttatext {
+		clear: both;
+	}
+	#yhteystiedot p {
+		float: none !important;
+		margin-right: 0 !important;
+	}
+
+    #ostoskori, #ostoskorix {
+    	display:block !important;
+    	/*margin:0 !important;*/
+    	padding: 0 !important;
+    	width:100% !important;
+    	max-width:100% !important;
+    	float:none;
+    	box-sizing:border-box;
+    	-moz-box-sizing:border-box;
+    	-webkit-box-sizing:border-box;
+    }
+    #ostoskori {
+    	padding:1em !important;	
+    }
+    #ostoskorix {
+    	margin:0 !important;
+    	padding-bottom:6em !important;	
+    }
+	#pitsulista {
+		width:100%;
+		float:none;
+		margin:0 !important;
+	}
+	#pitsulistax {
+		width:100%;
+		float:none;
+		margin:0 !important;
+
+	}
+	#tilauslomake {
+		width:auto !important;
+		float:none !important;
+		margin:1em !important;
+		display: block !important;
+	}
+	#tilauslomakex {
+		width:auto !important;
+		float:none !important;
+		margin:0 !important;
+		display: block !important;
+	}
+
+    #pitsulista .tuote {
+    	display:block;
+    	float:none;
+    	background:transparent !important;
+    	background-image: none !important;
+    	background-color: #fbfbfb !important;
+    	border-bottom:1px solid #aaa;
+    	position: normal;
+    	
+    	min-width: 100% !important;
+    	max-width: 100% !important;
+    	width:100%		!important;
+    	min-height:auto !important;
+    	/*max-height:auto !important;*/
+    	height:    70px !important;
+    	min-height:70px !important;
+
+		padding:.4em;
+    }
+
+    #pitsulista .tuote * {
+    	min-height:auto !important;
+    	max-height:auto !important;
+    	min-width: auto !important;
+    	max-width: auto !important;
+    	width:     auto !important;
+    	height:    auto !important;
+    	top:       auto !important;
+    	left:      auto !important;
+    	bottom:    auto !important;
+    	right:     auto !important;
+    	background-color: transparent !important;
+    	background-image: none !important;
+/*    	color:black !important;
+    	margin:0 !important;
+    	padding:0 !important;*/
+
+    }
+	#pitsulista .pitsuid {
+		display: block;
+		position: normal;
+		background-color: transparent;
+	}
+	#pitsulista .tuote:hover .pitsuid {
+	    width:auto !important;
+	    height:auto !important;
+	}
+
+
+
+	#pitsulista .pitsunimi {
+		padding: 2px !important;
+		color:black !important;
+		font-size: 15px !important;
+	    font-weight: bold;
+	    display: inline-block;
+	    clear:both;
+	    margin:0 !important;
+	    /*text-align: left;*/
+	}
+	#pitsulista .pitsukuvaus {
+	    clear:both;
+		color:black !important;
+	    font-size: 14px;
+	    width:100% !important;
+	    min-width:100% !important;
+		display: inline-block !important;
+
+	}
+
+	#pitsulista .pitsukuvaus:after {
+		content:" ";
+		display: block;
+		
+		clear:both;
+	}
+	#pitsulista .pitsuhintaboksi {
+		/*background-color: yellow;*/
+		display: inline-block;
+		/*float: right;*/
+		line-height: 10px !important;
+		
+		height: auto !important;
+		width: 60px !important;
+		padding: 0 !important;
+		margin:0 !important;
+		-webkit-box-shadow: none;
+		-moz-box-shadow:    none;
+		box-shadow:         none;
+		/*margin-right:-80px !important;*/
+	}
+
+	#pitsulista .pitsuhinta {
+		vertical-align:middle;
+		line-height: auto;
+		text-align: center;
+		vertical-align: middle;
+
+		font-size: 1em !important;
+		padding: 0 !important;
+		margin:0 !important;
+		font-size:1.1em !important;
+		
+	}
+	#pitsulista .pitsuhinta:after {
+		content:" ";
+		display: block;
+		clear:both;
+	}
+
+
+
+
+
+
+
+
+	#tilauslista {
+		width:auto !important;
+		display: block !important;
+		/*vertical-align: top;*/
+		float:none !important;
+		position: static !important;
+		/*background-color: white;*/
+		margin-bottom:1em !important;
+	}
+	#order-info {
+		margin:0 !important;
+		position: static !important;
+		/*padding-bottom:30em;*/
+	}
+
+	#order-info span {
+		width: 100px !important;
+	}
+
+}	
+
+
+#notif-msg {
+	display:block;
+	display: none;
+	left:1.5em;
+	top:1.5em;
+	right:1.5em;
+	height:3em;
+	padding:1em;
+	text-align: center;
+	font-weight: bold;
+	position: fixed;
+	background-color: rgba(255,200,80,.8);
+	border:2px solid rgba(255,190,10,.9);
+	border-radius: .5em;
+	z-index: 1000;
 }

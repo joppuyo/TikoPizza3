@@ -1,6 +1,6 @@
-//kun kÃ¤yttÃ¤jÃ¤ yrittÃ¤Ã¤ lÃ¤hettÃ¤Ã¤ lomakkeen
+//kun kŠyttŠjŠ yrittŠŠ lŠhettŠŠ lomakkeen
 
-$( "form" ).submit(function( event ) {
+$( "#order-form" ).submit(function( event ) {
 	
 	//validoi etunimi
 	
@@ -25,7 +25,7 @@ $( "form" ).submit(function( event ) {
 	//validoi puhelin
 	
 	var puhelin = $("input[type='text'][name='puhelinnumero']").val();
-	if (/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/.test(puhelin) && puhelin.length > 0) {
+	if (/^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$/.test(puhelin) && puhelin.length > 6 && puhelin.length < 11) {
 		$("#puhelinnumero-validator").hide("slow");
 	} else {
 		event.preventDefault();
@@ -57,11 +57,7 @@ $( "form" ).submit(function( event ) {
 				var latitude = jsonobj.results[0].geometry.location.lat;
 				var longitude = jsonobj.results[0].geometry.location.lng;
 				matka = LaskePituus(pitseria_latitude, pitseria_longitude, latitude, longitude);
-				if (katu.length == 0 || postinro.length == 0 || postitmi.length == 0) {
-					$("#osoite-validator").html("TÃ¤ytÃ¤ kaikki kentÃ¤t.");
-					$("#osoite-validator").show("slow");
-					event.preventDefault();
-				} else if (matka < 3) {
+				if (matka < 3 && katu.length > 0 && postinro.length > 0 && postitmi.length > 0) {
 					$("#osoite-validator").hide("slow");
 				} else {
 					$("#osoite-validator").html("Osoite ei toimitusalueella. Anna toinen osoite.");
@@ -74,6 +70,8 @@ $( "form" ).submit(function( event ) {
 					event.preventDefault();
 				}
 			});
+
+	$("#tuotteet-input").val(cart.contents.join(","))
 
 	
 });
