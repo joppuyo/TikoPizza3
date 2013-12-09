@@ -46,6 +46,15 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>tilausvarmistus</servlet-name>
+    <jsp-file>/WEB-INF/jsp/tilausvarmistus.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tilausvarmistus</servlet-name>
+    <url-pattern>/tilausvarmistus</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>orders</servlet-name>
     <jsp-file>/WEB-INF/jsp/ajax_orders.jsp</jsp-file>
   </servlet>
