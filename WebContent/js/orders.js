@@ -9,18 +9,25 @@ function prodListHTML(contents) {
     // alert(contents)
     contents = contents.split(",");
     s = "";
+    prods = {};
     for (var i =0; i < contents.length; i++) {
         if(!contents[i]) {continue;}
-        parts = contents[i].split("x");
-        id = parts[0];
-        count = parts[1];
-
+        id = contents[i];
+        if(prods[id]==undefined) {
+            prods[id]=1
+        }
+        else {
+            prods[id]+=1
+        }
+    }
+    for (var id in prods) {
         product = catalog.getProduct(id);
         name = product["name"];
         title = product["desc"];
+        count = prods[id];
 
-        s+="<span class=\"tuote\" title=\""+title+"\">"+count+" x <strong>"+name+"</strong></span>"
-    };
+        s+="<span class=\"order-tuote\" title=\""+title+"\">"+count+" x <strong>"+name+"</strong></span>"
+    }
     return s;
 }
 
@@ -76,9 +83,29 @@ function orderHTML(order) {
     </div>";
     return s;
 }
+function timeDiff(utime) {
+    // utime = utime*1000
+    var current_time = new Date().getTime()/1000;
+    // diff=current_time-utime
+    diff = Math.round(current_time-utime);
 
+    if(diff < 60) {
+       return "juuri nyt";
+    }
+    if(diff<60*60) {
+        return Math.round(diff/60)+" min"
+    }
+    h = Math.round(diff/(60*60))
+    if(h*60*60 > diff) h-=1
+    m = Math.round((diff-(h*60*60))/60)
+    if(m==60) {m=59}
+    return h+" h  "+m+" min"
+    return diff
+
+}
 function orderInfoHTML(order) {
     maplink="https://www.google.com/maps/preview#!q="+order.addr+", "+order.area
+
 
     var date = new Date(order.time*1000);
     var hours = add_zero(date.getHours());
@@ -93,9 +120,11 @@ function orderInfoHTML(order) {
         style = "display:none;"
     }
 
+
+
     s="<div id=\"order-"+order.id+"\" class=\"tilaus status-"+order.status+"\" style=\""+style+"\"> \
-        <h1><a name=\"order-anchor-"+order.id+"\">Tilaus #"+order.id+"</a></h1>\
-        <div>\
+        <h1><a name=\"order-anchor-"+order.id+"\">Tilaus #"+order.id+"</a><span id=\"order-time-"+order.id+"\">"+timeDiff(order.time)+"</span></h1>\
+        <div class=\"info\">\
           <div><span>Vastaanotettu</span>"+formattedTime+"</div>\
           <div><span>Asiakas</span>"+order["name"]+"</div>\
           <div><span>Tilausosoite</span><a href=\""+maplink+"\">"+order["addr"]+", "+order["pcode"]+" "+order["area"]+"</a></div>\
@@ -103,7 +132,7 @@ function orderInfoHTML(order) {
           <div><span>Puhelinnumero</span>"+order["phone"]+"</div>\
         </div>\
         <div class=\"products\">\
-            <h2>Tuotteet:</h2>"+prodListHTML(order["contents"])+"\
+            "+prodListHTML(order["contents"])+"\
         </div>\
         <div class=\"buttons\">\
             <a class=\"poista\" href=\"javascript:orders.delete("+order.id+")\">Poista</a>\
@@ -126,9 +155,13 @@ function Orders() {
 
     this.load = function() {
         this.getData()
-        setInterval("orders.getData()",10000)   // Haetaan tilauslista 10sec välein
+        setInterval("orders.refresh()",8000)   // Haetaan tilauslista 8sec välein
     }
 
+    this.refresh = function() {
+        this.getData();
+        this.updateTimes();
+    }
 
     this.getData = function() {
         $.getJSON("orders",
@@ -281,6 +314,13 @@ function Orders() {
             this.chart.series[0].data[0].update(['Uusi',   w1]);
             this.chart.series[0].data[1].update(['Käsittelyssä',   w2]);
             this.chart.series[0].data[2].update(['Toimitettu',   w3]);
+        }
+    }
+
+    this.updateTimes = function() {
+        for (var i = 0; i < this.orders.length; i++) {
+            order = this.orders[i];
+            $("#order-time-"+order.id).text(timeDiff(order.time))
         }
     }
 
