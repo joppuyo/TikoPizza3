@@ -17,7 +17,6 @@ public class Tilaus {
 	private String tuotteet;
 	
 	public Tilaus() {
-		this.tuotteet = "";
 		this.status = 0;
 		this.aika = (int) (System.currentTimeMillis() / 1000L);
 	}

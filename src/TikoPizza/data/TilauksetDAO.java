@@ -24,8 +24,7 @@ public class TilauksetDAO extends DataAccessObject {
         String t_toimipaikka = rs.getString("tilaus_toimipaikka");
         String t_puhelinnumero = rs.getString("tilaus_puhelinnumero");
         String t_email = rs.getString("tilaus_email");
-
-
+        String t_tuotteet = rs.getString("tilaus_tuotteet");
 
 		Tilaus tilaus = new Tilaus();
 
@@ -39,6 +38,7 @@ public class TilauksetDAO extends DataAccessObject {
 		tilaus.setToimipaikka(t_toimipaikka);
 		tilaus.setPuhelinnumero(t_puhelinnumero);
 		tilaus.setEmail(t_email);
+		tilaus.setTuotteet(t_tuotteet);
 
 		return tilaus;
 	}
@@ -105,55 +105,52 @@ public class TilauksetDAO extends DataAccessObject {
                              ClassNotFoundException,SQLException
                              {
 
-
-
-
 		LinkedList<Tilaus> tilaus_list = new LinkedList<Tilaus>();
 		ResultSet rs = null;
-		ResultSet rs2 = null;
+		// ResultSet rs2 = null;
 		PreparedStatement statement = null;
-		PreparedStatement statement2 = null;
+		// PreparedStatement statement2 = null;
 		Connection connection = null;
-		ArrayList<int[]> products = new ArrayList<int[]>();
+		// ArrayList<int[]> products = new ArrayList<int[]>();
 		try {
 			connection = getConnection();
 
 
-			statement2 = connection.prepareStatement("select * from tuotetilaus");
-			rs2 = statement2.executeQuery();
+			// statement2 = connection.prepareStatement("select * from tuotetilaus");
+			// rs2 = statement2.executeQuery();
 
 
 
-			String debugs = "";
-			while (rs2.next()) {
-				int til_id = rs2.getInt("tilaus_id");
-				debugs += til_id+" / ";
-				int tuo_id = rs2.getInt("tuote_id");
-				debugs += tuo_id+" / ";
-				int kpl = rs2.getInt("kpl");
-				debugs += kpl+" -- ";
-				int[] row = new int[3];
-				row = new int[]{til_id,tuo_id,kpl};
-				products.add(row);
-			}
+			// String debugs = "";
+			// while (rs2.next()) {
+			// 	int til_id = rs2.getInt("tilaus_id");
+			// 	debugs += til_id+" / ";
+			// 	int tuo_id = rs2.getInt("tuote_id");
+			// 	debugs += tuo_id+" / ";
+			// 	int kpl = rs2.getInt("kpl");
+			// 	debugs += kpl+" -- ";
+			// 	int[] row = new int[3];
+			// 	row = new int[]{til_id,tuo_id,kpl};
+			// 	products.add(row);
+			// }
 
-			int[] row = new int[3];
+			// int[] row = new int[3];
 			String sql = "select * from tilaus order by tilaus_aika DESC";
 			statement = connection.prepareStatement(sql);
 			rs = statement.executeQuery();
 			while (rs.next()) {
 				Tilaus tilausItem = read(rs);
-				String listString = "";
+				// String listString = "";
 
-				for(int i=0;i<products.size();i++) {
-					row = products.get(i);
-					if(row[0]==tilausItem.getTilausID()) {
-						// for(int j=0;j<row[2];j++) {
-							// tilausItem.setTuotteet(tilausItem.getTuotteet()+row[1]+",");
-						// }
-						tilausItem.setTuotteet(tilausItem.getTuotteet()+row[1]+"x"+row[2]+",");
-					}
-				}
+				// for(int i=0;i<products.size();i++) {
+				// 	row = products.get(i);
+				// 	if(row[0]==tilausItem.getTilausID()) {
+				// 		// for(int j=0;j<row[2];j++) {
+				// 			// tilausItem.setTuotteet(tilausItem.getTuotteet()+row[1]+",");
+				// 		// }
+				// 		tilausItem.setTuotteet(tilausItem.getTuotteet()+row[1]+"x"+row[2]+",");
+				// 	}
+				// }
 				tilaus_list.add(tilausItem);
 			}
 			return tilaus_list;
@@ -170,7 +167,7 @@ public class TilauksetDAO extends DataAccessObject {
 		PreparedStatement statement = null;
 		Connection connection = null;
 
-		String sql = "insert into tilaus set tilaus_status=?, tilaus_aika=?, tilaus_tilaaja=?, tilaus_osoite=?, tilaus_postinumero=?, tilaus_toimipaikka=?, tilaus_puhelinnumero=?, tilaus_email=?;";
+		String sql = "insert into tilaus set tilaus_status=?, tilaus_aika=?, tilaus_tilaaja=?, tilaus_osoite=?, tilaus_postinumero=?, tilaus_toimipaikka=?, tilaus_puhelinnumero=?, tilaus_email=?, tilaus_tuotteet=?;";
 
 		try
 		{
@@ -185,6 +182,7 @@ public class TilauksetDAO extends DataAccessObject {
 			statement.setString(6, tilaus.getToimipaikka());
 			statement.setString(7, tilaus.getPuhelinnumero());
 			statement.setString(8, tilaus.getEmail());
+			statement.setString(9, tilaus.getTuotteet());
 
 			statement.executeUpdate();
 		}
@@ -204,7 +202,7 @@ public class TilauksetDAO extends DataAccessObject {
 		PreparedStatement statement = null;
 		Connection connection = null;
 
-		String sql = "update tilaus set tilaus_status=?, tilaus_aika=?, tilaus_tilaaja=?, tilaus_osoite=?, tilaus_postinumero=?, tilaus_toimipaikka=?, tilaus_puhelinnumero=?, tilaus_email=? where tilaus_id=?;";
+		String sql = "update tilaus set tilaus_status=?, tilaus_aika=?, tilaus_tilaaja=?, tilaus_osoite=?, tilaus_postinumero=?, tilaus_toimipaikka=?, tilaus_puhelinnumero=?, tilaus_email=?, tilaus_tuotteet=? where tilaus_id=?;";
 
 		try
 		{
@@ -219,7 +217,8 @@ public class TilauksetDAO extends DataAccessObject {
 			statement.setString(6, tilaus.getToimipaikka());
 			statement.setString(7, tilaus.getPuhelinnumero());
 			statement.setString(8, tilaus.getEmail());
-			statement.setInt(9, tilaus.getTilausID());
+			statement.setString(9, tilaus.getTuotteet());
+			statement.setInt(10, tilaus.getTilausID());
 
 			statement.executeUpdate();
 		}
