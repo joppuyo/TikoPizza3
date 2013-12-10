@@ -160,7 +160,6 @@ function Orders() {
 
     this.refresh = function() {
         this.getData();
-        this.updateTimes();
     }
 
     this.getData = function() {
@@ -176,6 +175,9 @@ function Orders() {
                         orders.notif_sound.play();
                     }
                 }
+            }
+            else {
+                orders.updateTimes();
             }
         })
         //.error(function() { alert("error"); });
