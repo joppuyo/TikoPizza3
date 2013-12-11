@@ -14,6 +14,8 @@
         <!-- %@ include file="page_top.inc" %-->
 
         <div id="tilaukset">
+        
+        <div id="url" style="display:none">http://pizza.bittemple.net</div>
 
 
         	<div id="tilauslista">
@@ -51,6 +53,16 @@
 	<script src="http://code.highcharts.com/highcharts.js"></script>
 	<script src="http://code.highcharts.com/modules/exporting.js"></script>
 	<script src="js/jquery.ui.touch-punch.min.js"></script>
+	
+<script>
+
+$(document).keypress(function(e){
+  if(e.charCode == 117){
+	  $( "#url" ).toggle( "slow" );
+  }
+})
+
+</script>
 
 </body>
 

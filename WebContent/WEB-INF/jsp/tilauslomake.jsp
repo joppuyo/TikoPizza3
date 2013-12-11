@@ -146,7 +146,6 @@ Tarkista sähköpostiosoite
 
 </form>
 <% } else { %>
-<<<<<<< HEAD
 <form action="tilausvarmistus" method="get" name="tilaus">
 
 <div id="palkki">
@@ -154,10 +153,7 @@ Tarkista sähköpostiosoite
 <div id="vahvistus" class="active current" >Vahvista tiedot</div>
 <div id="valmis" >Valmis</div>
 </div>
-=======
 <form action="tilausvarmistus" method="post" name="tilaus">
-    <h2>Tilausvahvistus<h2>
->>>>>>> 87148a0f8c46c189845911fa3c0c3ffca48b47a9
 
 	<h3>Tilaajan nimi:</h3>
 	<p><%= kuittinimi %></p>

@@ -611,21 +611,16 @@ left: 32px;
 	border-color: #a00;
 }
 #tilaukset div.tilaus div.buttons a.sta1 {
-<<<<<<< HEAD
 	background:#e8d400;
 	border-color: #C5B400;
 }
 #tilaukset div.tilaus div.buttons a.sta2 {
 	background:#8bbc21;
 	border-color:#769F1C;
-=======
-	background:#fae20a;
-	border-color: #DEC909;
 }
 #tilaukset div.tilaus div.buttons a.sta2 {
 	background:#8bbc21;
 	border-color: #71991B;
->>>>>>> 87148a0f8c46c189845911fa3c0c3ffca48b47a9
 }
 #tilaukset div.tilaus div h2 {
 	/*margin-top:.5em;*/
@@ -656,6 +651,7 @@ left: 32px;
 
 
 #tilauslista {
+	top: 1px;
 	width:400px;
 	padding:0;
 	margin:0;
@@ -1076,4 +1072,16 @@ left: 32px;
 .current {
 	font-weight: bold !important;
 	color:white !important;
+}
+
+#url {
+	padding: 16px;
+	background-color:rgba(0,0,0,0.75);
+	color:white;
+	position:absolute;
+	z-index: 999;
+	font-size: 90px;
+	top: 5%;
+	left: 5%;
+	border-radius: 8px;
 }

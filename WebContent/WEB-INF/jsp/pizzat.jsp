@@ -55,7 +55,6 @@ String PrintTuote(Tuote tuote) {
 
     <%@ include file="cart_data.inc"%>
     <%@ include file="cart_deps.inc"%>
-
 </body>
 
 
