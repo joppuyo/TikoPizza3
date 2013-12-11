@@ -4,9 +4,8 @@ TikoPizzan tilauslistan engine
 
 */
 
-
+// Luodaan tilauksen tuotelista kappalemäärineen
 function prodListHTML(contents) {
-    // alert(contents)
     contents = contents.split(",");
     s = "";
     prods = {};
@@ -30,11 +29,13 @@ function prodListHTML(contents) {
     }
     return s;
 }
+// Lisätään numeron eteen 0 jos se on < 10. Käytetään kellonaikoihin.
 
 function add_zero(x) {
     if(x<10) return "0"+x;
     return ""+x;
 }
+
 function orderItemHTML(order) {
     s="<li id=\"order-link-id_"+order.id+"\" class=\"order status-"+order.status+"\">\
     <a class=\"status-"+order.status+"\" href=\"#order-anchor-"+order.id+"\">Tilaus #"+order.id+"</a></li>";
@@ -43,50 +44,9 @@ function orderItemHTML(order) {
 }
 
 
-function orderHTML(order) {
-    maplink="https://www.google.com/maps/preview#!q="+order.addr+", "+order.area
 
-    var date = new Date(order.time*1000);
-    var hours = add_zero(date.getHours());
-    var minutes = add_zero(date.getMinutes());
-    var day = add_zero(date.getDay());
-    var month = add_zero(date.getMonth());
-    var year = date.getFullYear();
-    var formattedTime = hours+':'+minutes+" "+day+"."+month+"."+year;
-
-    s="<div id=\"order-"+order["id"]+"\" class=\"tilaus status-"+order.status+"\"> \
-    <h1> Tilaus #"+order["id"]+"</h1>\
-    <table>\
-        <tr>\
-          <th>Vastaanotettu</th>\
-          <th>Asiakas</th>\
-          <th>Tilausosoite</th>\
-          <th>Email</th>\
-          <th>Puhelinnumero</th>\
-        </tr>\
-        <tr>\
-          <td>"+formattedTime+"</td>\
-          <td>"+order["name"]+"</td>\
-          <td><a href=\""+maplink+"\">"+order["addr"]+", "+order["pcode"]+" "+order["area"]+"</a></td>\
-          <td>"+order["email"]+"</td>\
-          <td>"+order["phone"]+"</td>\
-        </tr>\
-    </table>\
-          <div class=\"products\">\
-              <h2>Tuotteet:</h2>"+prodListHTML(order["contents"])+"\
-          </div>\
-          <div class=\"buttons\">\
-              <a class=\"poista\" href=\"javascript:orders.delete("+order.id+")\">Poista</a>\
-              <a class=\"sta1\"   href=\"javascript:orders.status("+order.id+","+1+")\">Käsittelyssä</a>\
-              <a class=\"sta2\" href=\"javascript:orders.status("+order.id+","+2+")\">Toimitettu</a>\
-          </div>\
-    </div>";
-    return s;
-}
 function timeDiff(utime) {
-    // utime = utime*1000
     var current_time = new Date().getTime()/1000;
-    // diff=current_time-utime
     diff = Math.round(current_time-utime);
 
     if(diff < 60) {
@@ -106,7 +66,6 @@ function timeDiff(utime) {
 function orderInfoHTML(order) {
     maplink="https://www.google.com/maps/preview#!q="+order.addr+", "+order.area
 
-
     var date = new Date(order.time*1000);
     var hours = add_zero(date.getHours());
     var minutes = add_zero(date.getMinutes());
@@ -120,8 +79,6 @@ function orderInfoHTML(order) {
         style = "display:none;"
     }
 
-
-
     s="<div id=\"order-"+order.id+"\" class=\"tilaus status-"+order.status+"\" style=\""+style+"\"> \
         <h1><a name=\"order-anchor-"+order.id+"\">Tilaus #"+order.id+"</a><span id=\"order-time-"+order.id+"\">"+timeDiff(order.time)+"</span></h1>\
         <div class=\"info\">\
@@ -129,7 +86,7 @@ function orderInfoHTML(order) {
           <div><span>Asiakas</span>"+order["name"]+"</div>\
           <div><span>Tilausosoite</span><a href=\""+maplink+"\">"+order["addr"]+", "+order["pcode"]+" "+order["area"]+"</a></div>\
           <div><span>Email</span>"+order["email"]+"</div>\
-          <div><span>Puhelinnumero</span>"+order["phone"]+"</div>\
+          <div class=\"phone\"><span>Puhelinnumero</span><span class=\"phone\">"+order["phone"]+"</span></div>\
         </div>\
         <div class=\"products\">\
             "+prodListHTML(order["contents"])+"\
@@ -143,14 +100,13 @@ function orderInfoHTML(order) {
     return s;
 }
 
+// Tilausten hallintakäyttöliittymän toiminnallisuus
 function Orders() {
-    // lista ostoskorin sisällöstä (tuote id:t)
     this.old_orders = -1;
     this.orders = -1;
     this.current_order=-1;
     this.notif_sound = new Audio('notif.wav');
     this.chart = null;
-    // minkä mukaan tuotteet järjestetään
 
 
     this.load = function() {
@@ -182,7 +138,7 @@ function Orders() {
         })
         //.error(function() { alert("error"); });
     }
-    // Päivitetään tuotelistaus tuote
+
     this.gotData = function() {
         if(orders.current_order==-1) {
             if(orders.orders == []){
@@ -192,6 +148,8 @@ function Orders() {
         this.update()
     }
 
+
+    // Haetaan tilauksen tiedot id:n perusteella
     this.get = function(id) {
         for (var i = this.orders.length - 1; i >= 0; i--) {
             order = this.orders[i];
@@ -212,6 +170,7 @@ function Orders() {
 
     }
 
+    // Poistetaan tuote
     this.delete = function(id) {
         if(!confirm("Haluatko poistaa tilauksen pysyvästi?")) {
             return false;
@@ -267,7 +226,6 @@ function Orders() {
                 plotBackgroundColor: null,
                 plotBorderWidth: 0,
                 plotShadow: false,
-                backgroundColor:'transparent',
                 width: 0,
             },
             exporting: {
@@ -298,12 +256,10 @@ function Orders() {
                     center: ['50%', 115],
                     size:250,
                     animation:true
-                    // center: ['50%', '50%']
                 }
             },
             series: [{
                 type: 'pie',
-                // name: 'Browser share',
                 innerSize: '130%',
                 animation: true,
                 data: [
@@ -379,7 +335,6 @@ function Orders() {
 
         $( "#orders-status-1,#orders-status-2" ).sortable({
               connectWith: "#orders-status-2",
-              // connectWith: ".orders-dnd2",
               revert: true,
               placeholder: "order-placeholder",
             }).disableSelection();

@@ -114,6 +114,10 @@ function Cart() {
     this.freeze_cart = false
     if( $('#tuotteet-pizza').length == 0) {
         this.freeze_cart = true
+        this.back_url = "pizzat";
+        }
+    if( $('form').attr("action") == "tilausvarmistus") {
+        this.back_url = "tilauslomake"
         }
 
     // Luetaan ostoskorin sisältö keksistä
@@ -251,7 +255,7 @@ function Cart() {
     this.updateUI = function() {
         if (this.freeze_cart) {
             $("#cart-buttons").html('\
-                <a href="pizzat" class="">Takaisin</a>\
+                <a href="'+this.back_url+'" class="">Takaisin</a>\
                 ')
         }
         else {
