@@ -3,6 +3,9 @@
   <listener>
     <listener-class>TikoPizza.WebContent.Init</listener-class>
   </listener>
+
+
+
   <servlet>
     <servlet-name>home</servlet-name>
     <servlet-class>TikoPizza.WebContent.HomeServlet</servlet-class>
@@ -11,6 +14,16 @@
     <servlet-name>home</servlet-name>
     <url-pattern></url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>admin</servlet-name>
+    <servlet-class>TikoPizza.WebContent.AdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>admin</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>pizzat</servlet-name>
     <servlet-class>TikoPizza.WebContent.PizzaListServlet</servlet-class>
@@ -19,6 +32,9 @@
     <servlet-name>pizzat</servlet-name>
     <url-pattern>/pizzat</url-pattern>
   </servlet-mapping>
+
+
+
   <servlet>
     <servlet-name>yhteystiedot</servlet-name>
     <jsp-file>/WEB-INF/jsp/yhteystiedot.jsp</jsp-file>
@@ -27,6 +43,8 @@
     <servlet-name>yhteystiedot</servlet-name>
     <url-pattern>/yhteystiedot</url-pattern>
   </servlet-mapping>
+
+
     <servlet>
     <servlet-name>tilauslomake</servlet-name>
     <jsp-file>/WEB-INF/jsp/tilauslomake.jsp</jsp-file>
@@ -35,6 +53,8 @@
     <servlet-name>tilauslomake</servlet-name>
     <url-pattern>/tilauslomake</url-pattern>
   </servlet-mapping>
+
+
 
   <servlet>
     <servlet-name>tilaukset</servlet-name>
@@ -45,6 +65,8 @@
     <url-pattern>/tilaukset</url-pattern>
   </servlet-mapping>
 
+
+
   <servlet>
     <servlet-name>tilausvarmistus</servlet-name>
     <jsp-file>/WEB-INF/jsp/tilausvarmistus.jsp</jsp-file>
@@ -54,6 +76,8 @@
     <url-pattern>/tilausvarmistus</url-pattern>
   </servlet-mapping>
 
+
+
   <servlet>
     <servlet-name>orders</servlet-name>
     <jsp-file>/WEB-INF/jsp/ajax_orders.jsp</jsp-file>
@@ -62,6 +86,11 @@
     <servlet-name>orders</servlet-name>
     <url-pattern>/orders</url-pattern>
   </servlet-mapping>
+
+
+
+
+
 
 
   <error-page>
