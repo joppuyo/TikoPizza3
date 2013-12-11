@@ -59,7 +59,7 @@ if(submit == null || submit.isEmpty()) {
 if(valid) {
 %>
 
-<form action="tilauslomake" method="get" name="tilaus" id="order-form">
+<form action="tilauslomake" method="post" name="tilaus" id="order-form">
 
 <div id="palkki">
 <div id="tiedot" class="active current">Tilaustiedot</div>
@@ -146,6 +146,7 @@ Tarkista sähköpostiosoite
 
 </form>
 <% } else { %>
+<<<<<<< HEAD
 <form action="tilausvarmistus" method="get" name="tilaus">
 
 <div id="palkki">
@@ -153,6 +154,10 @@ Tarkista sähköpostiosoite
 <div id="vahvistus" class="active current" >Vahvista tiedot</div>
 <div id="valmis" >Valmis</div>
 </div>
+=======
+<form action="tilausvarmistus" method="post" name="tilaus">
+    <h2>Tilausvahvistus<h2>
+>>>>>>> 87148a0f8c46c189845911fa3c0c3ffca48b47a9
 
 	<h3>Tilaajan nimi:</h3>
 	<p><%= kuittinimi %></p>
@@ -163,8 +168,6 @@ Tarkista sähköpostiosoite
 	<p><%= kuittipuhelinnumero %></p>
 	<h3>Tilaajan sähköpostiosoite:</h3>
 	<p><%= kuittiemail %></p>
-	<h3>Tilauksen tuotteet:</h3>
-	<p><%= kuittituotteet %></p>
 	
 
 	<input type="hidden" name="etunimi" value="<%=kuittietunimi%>">

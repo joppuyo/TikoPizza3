@@ -587,8 +587,8 @@ left: 32px;
 	display: inline-block;
 }
 #tilaukset div.tilaus div.buttons {
-	width:49%;
-	display: inline-block;
+	/*width:49%;*/
+	/*display: inline-block;*/
 	text-align: right;
 }
 #tilaukset div.tilaus div.buttons a {
@@ -611,12 +611,21 @@ left: 32px;
 	border-color: #a00;
 }
 #tilaukset div.tilaus div.buttons a.sta1 {
+<<<<<<< HEAD
 	background:#e8d400;
 	border-color: #C5B400;
 }
 #tilaukset div.tilaus div.buttons a.sta2 {
 	background:#8bbc21;
 	border-color:#769F1C;
+=======
+	background:#fae20a;
+	border-color: #DEC909;
+}
+#tilaukset div.tilaus div.buttons a.sta2 {
+	background:#8bbc21;
+	border-color: #71991B;
+>>>>>>> 87148a0f8c46c189845911fa3c0c3ffca48b47a9
 }
 #tilaukset div.tilaus div h2 {
 	/*margin-top:.5em;*/
@@ -626,16 +635,23 @@ left: 32px;
 	font-weight: bold;
 	display:inline-block;
 }
-#tilaukset div.tilaus span.tuote {
+#tilaukset div.tilaus div.products {
+	width: 100%;
+	display: block;
+}
+#tilaukset div.tilaus div.products .order-tuote {
 	display:inline-block;
 	font-size:.9em;
-	padding:.5em;
-	margin:0 .3em;
+	padding:.4em;
+	margin:.2em .2em;
 	background-color: #ddd;
-	border-radius: 2px;
+	border-radius: 3px;
+	text-align: left;
+	width: auto !important;
 }
-#tilaukset div.tilaus span.tuote strong {
+#tilaukset div.tilaus div.products .order-tuote strong {
 	color:#000;
+	font-weight: bold;
 }
 
 
@@ -647,10 +663,17 @@ left: 32px;
 	vertical-align: top;
 	float:left;
 	position: fixed;
+<<<<<<< HEAD
 	background-color: #fbfbfb;
 	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
+=======
+	top:.8em;
+	bottom: .8em;
+	overflow-y:auto;
+	background-color: white;
+>>>>>>> 87148a0f8c46c189845911fa3c0c3ffca48b47a9
 
 }
 #orderstats text[text-anchor="end"] {
@@ -742,7 +765,13 @@ left: 32px;
 #order-info h1 a {
 	color:white;
 }
-#order-info div span {
+#order-info h1 span {
+	float:right;
+	font-weight: normal;
+	font-size:.9em;
+	text-transform: none;
+}
+#order-info div.info span {
 	width:160px;
 	display: inline-block;
 	font-weight: normal;
