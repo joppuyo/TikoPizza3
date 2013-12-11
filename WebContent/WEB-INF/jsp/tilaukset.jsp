@@ -11,7 +11,6 @@
 <body>
 
     <div id="holder">
-        <!-- %@ include file="page_top.inc" %-->
 
         <div id="tilaukset">
         

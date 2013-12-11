@@ -78,7 +78,7 @@ try {
             
             <h2>Tilauksenne on vahvistettu!</h2>
             
-            <p>Kiitos! Olemme vastaanottaneet tilauksenne. Saatte vahvistuksen sähköpostilla ja tekstiviestillä, kun otamme tilauksenne käsittelyyn.</p>
+            <p>Olemme vastaanottaneet tilauksenne. Saatte vahvistuksen tekstiviestillä, kun otamme tilauksen käsittelyyn. Kiitos!</p>
             
             <div id="kuvitus">
             

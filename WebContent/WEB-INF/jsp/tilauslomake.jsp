@@ -146,7 +146,6 @@ Tarkista sähköpostiosoite
 
 </form>
 <% } else { %>
-<form action="tilausvarmistus" method="get" name="tilaus">
 
 <div id="palkki">
 <div id="tiedot" class="active">Tilaustiedot</div>

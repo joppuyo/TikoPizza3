@@ -11,42 +11,45 @@
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
 
+<%@ include file="page_auth_check.inc" %>
+
 
 <%
-String action = request.getParameter("action");
-String str_id = request.getParameter("id");
-int id=-1;
-String str_status = request.getParameter("status");
-int status=-1;
-if(action==null) {action = "";}
-if(str_id!=null) {
-	id = Integer.parseInt(str_id);
-}
-if(str_status==null) {
-	status = -1;
-}
-else {
-	status = Integer.parseInt(str_status);
-}
-
-TilauksetDAO tdao;
-tdao = new TilauksetDAO();
-
-
-if(action.equals("delete")) {
-	tdao.delete(id);
-} else if(action.equals("status")) {
-	Tilaus tilaus = tdao.find(id);
-	tilaus.setStatus(status);
-	tdao.update(tilaus);
-	if(status==1) {
-	    String msg = "Hyvä "+tilaus.getTilaaja()+", tilauksenne on vastaanotettu. Arvioitu toimitusaika n. 35min. Tilausnumero "+tilaus.getTilausID()+". Kiitos!";
-	    //Scanner scanz = new Scanner(new URL("http://62.78.217.223:48080/txt/?key=salakoodi27&to="+tilaus.getPuhelinnumero()+"&msg="+URLEncoder.encode(msg, "UTF-8")).openStream(), "UTF-8").useDelimiter("\\A").next();
-	    URL url = new URL("http://62.78.217.223:48080/txt/?key=salakoodi27&to="+tilaus.getPuhelinnumero()+"&msg="+URLEncoder.encode(msg, "UTF-8"));
-		Scanner s = new Scanner(url.openStream());
-		String data = s.next();
+if(authed) {
+	String action = request.getParameter("action");
+	String str_id = request.getParameter("id");
+	int id=-1;
+	String str_status = request.getParameter("status");
+	int status=-1;
+	if(action==null) {action = "";}
+	if(str_id!=null) {
+		id = Integer.parseInt(str_id);
 	}
-}
+	if(str_status==null) {
+		status = -1;
+	}
+	else {
+		status = Integer.parseInt(str_status);
+	}
+
+	TilauksetDAO tdao;
+	tdao = new TilauksetDAO();
+
+
+	if(action.equals("delete")) {
+		tdao.delete(id);
+	} else if(action.equals("status")) {
+		Tilaus tilaus = tdao.find(id);
+		tilaus.setStatus(status);
+		tdao.update(tilaus);
+		if(status==1) {
+		    String msg = "Hyvä "+tilaus.getTilaaja()+", tilauksenne on vastaanotettu. Arvioitu toimitusaika n. 35min. Tilausnumero "+tilaus.getTilausID()+". Kiitos!";
+		    //Scanner scanz = new Scanner(new URL("http://62.78.217.223:48080/txt/?key=salakoodi27&to="+tilaus.getPuhelinnumero()+"&msg="+URLEncoder.encode(msg, "UTF-8")).openStream(), "UTF-8").useDelimiter("\\A").next();
+		    URL url = new URL("http://62.78.217.223:48080/txt/?key=salakoodi27&to="+tilaus.getPuhelinnumero()+"&msg="+URLEncoder.encode(msg, "UTF-8"));
+			Scanner s = new Scanner(url.openStream());
+			String data = s.next();
+		}
+	}
 
 
 	List<Tilaus> tilaukset = tdao.findAll();
@@ -65,6 +68,13 @@ if(action.equals("delete")) {
 	}
 	%>
 	]
-<%
 
+
+<%
+}
+else {
+%>
+not_authed
+<%
+}
 %>
