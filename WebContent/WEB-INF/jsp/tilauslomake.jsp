@@ -61,9 +61,11 @@ if(valid) {
 
 <form action="tilauslomake" method="get" name="tilaus" id="order-form">
 
-
-<p>Tilauslomake</p>
-
+<div id="palkki">
+<div id="tiedot" class="active current">Tilaustiedot</div>
+<div id="vahvistus" >Vahvista tiedot</div>
+<div id="valmis" >Valmis</div>
+</div>
 
 <table>
 <tr>
@@ -145,7 +147,12 @@ Tarkista sähköpostiosoite
 </form>
 <% } else { %>
 <form action="tilausvarmistus" method="get" name="tilaus">
-    <h2>Tilausvahvistus<h2>
+
+<div id="palkki">
+<div id="tiedot" class="active">Tilaustiedot</div>
+<div id="vahvistus" class="active current" >Vahvista tiedot</div>
+<div id="valmis" >Valmis</div>
+</div>
 
 	<h3>Tilaajan nimi:</h3>
 	<p><%= kuittinimi %></p>

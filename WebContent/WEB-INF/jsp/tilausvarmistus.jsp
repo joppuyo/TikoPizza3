@@ -69,8 +69,37 @@ try {
 
         <div id="tilauslomake">
             <div id="tilauslomakex">
+            
+            <div id="palkki">
+            <div id="tiedot" class="active">Tilaustiedot</div>
+            <div id="vahvistus" class="active">Vahvista tilaus</div>
+            <div id="valmis" class="active current">Valmis</div>
+            </div>
+            
             <h2>Tilauksenne on vahvistettu!</h2>
+            
             <p>Kiitos! Olemme vastaanottaneet tilauksenne. Saatte vahvistuksen sähköpostilla ja tekstiviestillä, kun otamme tilauksenne käsittelyyn.</p>
+            
+            <div id="kuvitus">
+            
+            <div class="kuva">
+            <img src="images/kuvitus1.png" />
+            <p>1. Kokkimme valmistaa pitsun</p>
+            </div>
+            
+            <div class="kuva">
+            <img src="images/kuvitus2.png" />
+            <p>2. Pitsu toimitetaan antamaasi osoitteeseen</p>
+            </div>
+            
+            <div class="kuva">
+            <img src="images/kuvitus3.png" />
+            <p>3. Syö pitsu! Nam!</p>
+            </div>
+            
+            </div>
+
+			<div style="clear:both"></div>
 
             </div>
         </div>

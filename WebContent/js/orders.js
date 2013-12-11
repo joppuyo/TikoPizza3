@@ -232,6 +232,7 @@ function Orders() {
                 plotBackgroundColor: null,
                 plotBorderWidth: 0,
                 plotShadow: false,
+                backgroundColor:'transparent',
                 width: 0,
             },
             exporting: {
