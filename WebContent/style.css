@@ -513,7 +513,8 @@ td {
 	vertical-align: top;
 }
 #tilaukset div.tilaus {
-	background: #FDFDFD;
+	background: #FDFDFD; 
+	
 	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
