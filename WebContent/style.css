@@ -39,7 +39,6 @@ html, body {
 
 #top {
 	position: relative;
-	/*height: 172px;*/
 	background: #FDFDFD;
 	-moz-box-shadow:    0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
@@ -51,7 +50,6 @@ html, body {
 	padding:1em 1em 0 1em;
 }
 #top img {
-	/*margin: 16px;*/
 }
 #top img.offer {
 	float:right;
@@ -70,15 +68,12 @@ html, body {
 #navbar {
 	background: #FDFDFD;
 	font-size: 24px;
-	/*position: absolute;*/
-	/*bottom: 0;*/
 	padding: 8px;
 	clear:both;
 }
 
 .navbar-item, .navbar-item-active {
 	display: inline-block;
-	/*float: left;*/
 	padding: 4px;
 	margin-right: 8px;
 }
@@ -175,7 +170,6 @@ html, body {
     float:right;
     text-align:center;
     display:inline-block;
-    /*text-align:right;*/
     padding-right:1em;
     position: relative;
     top:0;
@@ -226,8 +220,6 @@ html, body {
 	padding: 8px;
 	color: white;
 	font-size: 16px;
-	/*float: left;*/
-	/*max-width: 160px;*/
 	display: block;
 	text-align: center;
 	vertical-align: middle;
@@ -239,9 +231,7 @@ html, body {
     padding: 8px;
     color: white;
     font-size: 14px;
-    /*max-width: 160px;*/
-    vertical-align: middle;
-    
+    vertical-align: middle;    
 }
 
 .pitsuhintaboksi {
@@ -277,30 +267,24 @@ html, body {
 	margin: 8px;
 	padding: 8px;
 	background-color: white;
-	/*position: relative;*/
 }
 
 #yhteystiedot .info {
-	/*float: left;*/
-	/*display: inline-block;*/
-	/*margin-right: 500px;*/
 	width: auto;
-	/*border: 1px solid red;*/
 	vertical-align: top;
 }
 
 #kartta {
-	/*position: absolute;*/
-	/*top:0;*/
-	/*right: 0;*/
 	display: inline-block;
 	z-index: 500;
 	padding: 8px;
 	float:right;
 	vertical-align: top;
-	width: 450px;
+	width:100%;
 }
-
+#kartta iframe{
+	width: 100%;
+}
 #karttatext {
 	clear: both;
 }
@@ -352,7 +336,6 @@ td {
 #ostoskori {
 	margin: 0px;
 	max-width: 272px;
-	/*max-height: 250px;*/
 	width: 272px;
 	min-height: 250px;
 	-display: block;
@@ -368,7 +351,6 @@ td {
 
 #ostoskorix {
 	max-width: 272px;
-	/*max-height: 250px;*/
 	width: 272px;
 	min-height: 250px;
 	margin-left: -16px;
@@ -387,8 +369,6 @@ td {
 	font-size:18px;
 	font-weight:bold;
     border:1px solid white;
-    /*background-color:#ff4;*/
-    /*background-color:#ffe;*/
     text-transform: uppercase;
     border-bottom:1px solid #eee;
 }
@@ -403,7 +383,6 @@ td {
     right:0;
 
     padding:.3em .6em;
-    /*padding-bottom: .6em;*/
     text-align: right;
 }
 #ostoskori #cart-total-price {
@@ -455,16 +434,16 @@ td {
 
 .validator:after 
 {
-content: '';
-position: absolute;
-border-style: solid;
-border-width: 0 9px 11px;
-border-color: #FF0000 transparent;
-display: block;
-width: 0;
-z-index: 1;
-top: -11px;
-left: 32px;
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 0 9px 11px;
+	border-color: #FF0000 transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	top: -11px;
+	left: 32px;
 }
 
 .cart-tuote {
@@ -561,13 +540,12 @@ left: 32px;
 	background:#8bbc21;
 }
 
-#tilaukset div.tilaus table {
+/*#tilaukset div.tilaus table {
 	width:100%;
 	font-size:.9em;
 	text-align:center;
 }
 #tilaukset div.tilaus table th {
-	/*font-weight: bold;*/
 	padding:.2em;
 	font-size:.8em;
 }
@@ -576,7 +554,7 @@ left: 32px;
 	padding:.5em;
 	border:1px solid white;
 	font-weight: ;
-}
+}*/
 
 
 #tilaukset div.tilaus div {
@@ -587,8 +565,6 @@ left: 32px;
 	display: inline-block;
 }
 #tilaukset div.tilaus div.buttons {
-	/*width:49%;*/
-	/*display: inline-block;*/
 	text-align: right;
 }
 #tilaukset div.tilaus div.buttons a {
@@ -623,7 +599,6 @@ left: 32px;
 	border-color: #71991B;
 }
 #tilaukset div.tilaus div h2 {
-	/*margin-top:.5em;*/
 	font-size:.9em;
 }
 #tilaukset div.tilaus div h2 {
@@ -659,17 +634,15 @@ left: 32px;
 	vertical-align: top;
 	float:left;
 	position: fixed;
-<<<<<<< HEAD
 	background-color: #fbfbfb;
 	-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	-webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
 	box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.50);
-=======
 	top:.8em;
 	bottom: .8em;
+	left:.8em;
 	overflow-y:auto;
 	background-color: white;
->>>>>>> 87148a0f8c46c189845911fa3c0c3ffca48b47a9
 
 }
 #orderstats text[text-anchor="end"] {
@@ -695,7 +668,6 @@ left: 32px;
 	text-align: center;
 }
 #orderlist .orders {
-	/*display: inline-block;*/
 	margin:0;
 	padding:0;
 	min-height: 200px;
@@ -750,7 +722,6 @@ left: 32px;
 
 }
 #order-info div {
-	/*display: inline-block;*/
 	font-weight: bold;
 	font-size:.95em;
 }
@@ -774,6 +745,13 @@ left: 32px;
 	font-size:.9em;
 	text-align: right;
 	padding-right: 1em;
+}
+#order-info div.info span.phone {
+	background-color: black;
+	color: black;
+	margin:0;
+	padding:0;
+	width:auto;
 }
 
 
@@ -802,7 +780,6 @@ left: 32px;
 
     #ostoskori, #ostoskorix {
     	display:block !important;
-    	/*margin:0 !important;*/
     	padding: 0 !important;
     	width:100% !important;
     	max-width:100% !important;
@@ -855,7 +832,6 @@ left: 32px;
     	max-width: 100% !important;
     	width:100%		!important;
     	min-height:auto !important;
-    	/*max-height:auto !important;*/
     	height:    70px !important;
     	min-height:70px !important;
 
@@ -875,10 +851,6 @@ left: 32px;
     	right:     auto !important;
     	background-color: transparent !important;
     	background-image: none !important;
-/*    	color:black !important;
-    	margin:0 !important;
-    	padding:0 !important;*/
-
     }
 	#pitsulista .pitsuid {
 		display: block;
@@ -962,16 +934,13 @@ left: 32px;
 	#tilauslista {
 		width:auto !important;
 		display: block !important;
-		/*vertical-align: top;*/
 		float:none !important;
 		position: static !important;
-		/*background-color: white;*/
 		margin-bottom:1em !important;
 	}
 	#order-info {
 		margin:0 !important;
 		position: static !important;
-		/*padding-bottom:30em;*/
 	}
 
 	#order-info span {
