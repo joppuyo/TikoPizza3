@@ -1,11 +1,11 @@
-//kun k�ytt�j� yritt�� l�hett�� lomakkeen
+//kun k�ytt�j� yritt�� l�hett�� lomakkeen
 
 $( "#order-form" ).submit(function( event ) {
 	
 	//validoi etunimi
 	
 	var etunimi = $("input[type='text'][name='etunimi']").val();
-	if (/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/.test(etunimi)) {
+	if (/^[a-zA-ZÄäÖö]+(([\'\,\.\-][a-zA-ZÄäÖö])?[a-zA-ZÄäÖö]*)*$/.test(etunimi)) {
 		$("#etunimi-validator").hide("slow");
 	} else {
 		event.preventDefault();
@@ -15,7 +15,7 @@ $( "#order-form" ).submit(function( event ) {
 	//validoi sukunimi
 	
 	var sukunimi = $("input[type='text'][name='sukunimi']").val();
-	if (/^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$/.test(sukunimi)) {
+	if (/^[a-zA-ZÄäÖö]+(([\'\,\.\-][a-zA-ZÄäÖö])?[a-zA-ZÄäÖö]*)*$/.test(sukunimi)) {
 		$("#sukunimi-validator").hide("slow");
 	} else {
 		event.preventDefault();
@@ -50,6 +50,7 @@ $( "#order-form" ).submit(function( event ) {
 		var katu = $("#osoite").val();
 		var postinro = $("#postinumero").val();
 		var postitmi = $("#postitoimipaikka").val();
+		var toimitusmatka = 10; //km
 
 			var url = "http://maps.googleapis.com/maps/api/geocode/json?address=" + katu + " " + postinro + " " + postitmi + "&sensor=false";
 			$.getJSON(url, function(jsonobj) {
@@ -57,7 +58,7 @@ $( "#order-form" ).submit(function( event ) {
 				var latitude = jsonobj.results[0].geometry.location.lat;
 				var longitude = jsonobj.results[0].geometry.location.lng;
 				matka = LaskePituus(pitseria_latitude, pitseria_longitude, latitude, longitude);
-				if (matka < 3 && katu.length > 0 && postinro.length > 0 && postitmi.length > 0) {
+				if (matka < toimitusmatka && katu.length > 0 && postinro.length > 0 && postitmi.length > 0) {
 					$("#osoite-validator").hide("slow");
 				} else {
 					$("#osoite-validator").html("Osoite ei toimitusalueella. Anna toinen osoite.");
