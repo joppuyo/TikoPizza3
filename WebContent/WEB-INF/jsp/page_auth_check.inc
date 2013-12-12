@@ -2,7 +2,7 @@
 <%@ page import="javax.servlet.http.Cookie" %>
 
 <%
-Boolean authed = false;
+Boolean authed = false; 
 
 Cookie[] cookies = request.getCookies();
 if(cookies!=null) {
